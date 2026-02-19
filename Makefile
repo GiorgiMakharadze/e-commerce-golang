@@ -30,11 +30,7 @@ dev:
 
 lint: format
 	golangci-lint run ./...
-
-format:
-	@gofmt -s -w .
-	@goimports -w .
-
+	
 docs-generate:
 	mkdir -p docs
 	swag init -g cmd/api/main.go -o docs --parseDependency --parseInternal --exclude .git,docs,docker,db
