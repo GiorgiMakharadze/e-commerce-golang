@@ -31,9 +31,9 @@ type DatabaseConfig struct {
 }
 
 type JWTConfig struct {
-	Secret              string
-	ExpiresIn           time.Duration
-	RefreshTokenExpires time.Duration
+	Secret               string
+	AccessTokenExpiresIn time.Duration
+	RefreshTokenExpires  time.Duration
 }
 
 type AWSConfig struct {
@@ -71,9 +71,9 @@ func Load() (*Config, error) {
 		},
 
 		JWT: JWTConfig{
-			Secret:              getEnv("JWT_SECRET", "your-super-secret-jwt-key"),
-			ExpiresIn:           jwtExpiresIn,
-			RefreshTokenExpires: refreshTokenExpiresIn,
+			Secret:               getEnv("JWT_SECRET", "your-super-secret-jwt-key"),
+			AccessTokenExpiresIn: jwtExpiresIn,
+			RefreshTokenExpires:  refreshTokenExpiresIn,
 		},
 
 		AWS: AWSConfig{
