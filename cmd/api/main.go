@@ -37,7 +37,7 @@ func main() {
 	defer mainDB.Close()
 	gin.SetMode(cfg.Server.GinMode)
 
-	srv := server.New(cfg, db, log)
+	srv := server.New(cfg, db, &log)
 	router := srv.SetUpRoutes()
 
 	httpServer := &http.Server{
